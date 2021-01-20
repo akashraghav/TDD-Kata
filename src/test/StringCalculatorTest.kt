@@ -60,6 +60,6 @@ class StringCalculatorTest {
 
     @Test
     fun test_add_inputGreaterThan1000Numbers_throwException() {
-        Assert.assertEquals(tddContainer.add("1,2500,3,1200,5, 1900"), 9)
+        Assert.assertEquals(tddContainer.add("1,2500,3,1200,5,1900"), 9)
     }
 }

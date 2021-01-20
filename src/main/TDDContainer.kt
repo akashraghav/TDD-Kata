@@ -9,11 +9,11 @@ class TDDContainer {
         val updatedString = input.substring(input.indexOf("\n") + 1)
         val data = updatedString.split(*delimiters)
         var sum = 0
-        val (negatives, positives) = data.map { it.toInt() }.partition { it < 0 }
+        val (negatives, positives) = data.map { it.trim().toInt() }.partition { it < 0 }
         if (negatives.isNotEmpty()) {
             throw NumberFormatException("negatives not allowed $negatives")
         }
-        positives.forEach {
+        positives.filter { it <= 1000 }.forEach {
             sum += it
         }
         return sum
