@@ -1,6 +1,7 @@
 class TDDContainer {
-    fun add(): Long {
-        TODO("Not yet implemented")
+    fun add(input: String): Long {
+
+        return 0
     }
 
 }
