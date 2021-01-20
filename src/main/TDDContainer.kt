@@ -1,3 +1,5 @@
+import java.lang.NumberFormatException
+
 class TDDContainer {
     fun add(input: String): Int {
         var delimiters: Array<String> = arrayOf(",", "\n")
@@ -7,7 +9,11 @@ class TDDContainer {
         val updatedString = input.substring(input.indexOf("\n") + 1)
         val data = updatedString.split(*delimiters)
         var sum = 0
-        data.map { it.toInt() }.forEach {
+        val (negatives, positives) = data.map { it.toInt() }.partition { it < 0 }
+        if (negatives.isNotEmpty()) {
+            throw NumberFormatException("negatives not allowed $negatives")
+        }
+        positives.forEach {
             sum += it
         }
         return sum
