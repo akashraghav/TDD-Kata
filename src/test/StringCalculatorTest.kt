@@ -52,4 +52,9 @@ class StringCalculatorTest {
         Assert.assertEquals(tddContainer.add("//;\n1;2;3"), 6)
         Assert.assertEquals(tddContainer.add("//x\n1x2x3"), 6)
     }
+
+    @Test(expected = NumberFormatException::class)
+    fun test_add_NegativeNumbers_throwException() {
+        tddContainer.add("1,-2,3,-4,5")
+    }
 }
