@@ -50,6 +50,6 @@ class StringCalculatorTest {
     @Test
     fun test_add_useNewDelimiter_expectedSum() {
         Assert.assertEquals(tddContainer.add("//;\n1;2;3"), 6)
-        Assert.assertEquals(tddContainer.add("//x\n1;2;3"), 6)
+        Assert.assertEquals(tddContainer.add("//x\n1x2x3"), 6)
     }
 }
