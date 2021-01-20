@@ -4,6 +4,8 @@ import TDDContainer
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
+import java.lang.NumberFormatException
+import java.util.EnumSet.range
 
 class StringCalculatorTest {
 
@@ -22,5 +24,22 @@ class StringCalculatorTest {
     @Test
     fun test_add_singleInput_sameOutputAsInput() {
         Assert.assertEquals(tddContainer.add("1"), 1)
+    }
+
+    @Test
+    fun test_add_variableInput_sumAsOutput() {
+        val count = Math.random().toInt()
+        var dataString = ""
+        // create string "0,1,2,3,4,5,6...." random size
+        for (i in 0..count) {
+            dataString += if (i > 0) { ",$i" } else { "$i" }
+        }
+        val sum : Int = (count * count + 1) / 2
+        Assert.assertEquals(tddContainer.add(dataString), sum)
+    }
+
+    @Test(expected = NumberFormatException::class)
+    fun test_add_invalidInputPattern_throwException() {
+        tddContainer.add("1/a/s,2,v,a")
     }
 }
