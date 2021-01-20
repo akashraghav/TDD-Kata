@@ -18,4 +18,9 @@ class StringCalculatorTest {
     fun test_add_emptyInput_zero() {
         Assert.assertEquals(tddContainer.add(""), 0)
     }
+
+    @Test
+    fun test_add_singleInput_sameOutputAsInput() {
+        Assert.assertEquals(tddContainer.add("1"), 1)
+    }
 }
