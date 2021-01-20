@@ -5,7 +5,6 @@ import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import java.lang.NumberFormatException
-import java.util.EnumSet.range
 
 class StringCalculatorTest {
 
@@ -46,5 +45,11 @@ class StringCalculatorTest {
     @Test
     fun test_add_nextLineAsDelimiter_expectedOuptut() {
         Assert.assertEquals(tddContainer.add("1\n2,3"), 6)
+    }
+
+    @Test
+    fun test_add_useNewDelimiter_expectedSum() {
+        Assert.assertEquals(tddContainer.add("//;\n1;2;3"), 6)
+        Assert.assertEquals(tddContainer.add("//x\n1;2;3"), 6)
     }
 }
