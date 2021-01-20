@@ -21,12 +21,12 @@ class StringCalculatorTest {
     }
 
     @Test
-    fun test_add_singleInput_sameOutputAsInput() {
+    fun test_add_singleInput_expectedSum() {
         Assert.assertEquals(tddContainer.add("1"), 1)
     }
 
     @Test
-    fun test_add_variableInput_sumAsOutput() {
+    fun test_add_variableInput_expectedSum() {
         val count = Math.random().toInt()
         var dataString = ""
         // create string "0,1,2,3,4,5,6...." random size
@@ -43,7 +43,7 @@ class StringCalculatorTest {
     }
 
     @Test
-    fun test_add_nextLineAsDelimiter_expectedOuptut() {
+    fun test_add_nextLineAsDelimiter_expectedSum() {
         Assert.assertEquals(tddContainer.add("1\n2,3"), 6)
     }
 
@@ -59,7 +59,13 @@ class StringCalculatorTest {
     }
 
     @Test
-    fun test_add_inputGreaterThan1000Numbers_throwException() {
+    fun test_add_inputGreaterThan1000Numbers_expectedSum() {
         Assert.assertEquals(tddContainer.add("1,2500,3,1200,5,1900"), 9)
+    }
+
+    @Test
+    fun test_add_inputLongerDelimiters_expectedSum() {
+        Assert.assertEquals(tddContainer.add("//[***]\n1***2***3"), 6)
+        Assert.assertEquals(tddContainer.add("//[xab]\n1xab2xab3"), 6)
     }
 }
