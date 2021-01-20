@@ -7,11 +7,12 @@ class TDDContainer {
         var delimiters: Array<String> = arrayOf(",", "\n")
         val updatedString: String = if (input.startsWith("//")) {
             var delimiterString = input.substring(2, input.indexOf("\n"))
-            if (delimiterString.startsWith("["))
-                delimiterString = delimiterString.substring(1)
-            if (delimiterString.endsWith("]"))
-                delimiterString = delimiterString.substring(0, delimiterString.length - 1)
-            delimiters = delimiters.plus(delimiterString)
+            delimiterString.split( "][").forEach {
+                var delimiter = it
+                delimiter = delimiter.removePrefix("[")
+                delimiter = delimiter.removeSuffix("]")
+                delimiters = delimiters.plus(delimiter)
+            }
             input.substring(input.indexOf("\n") + 1)
         } else {
             input

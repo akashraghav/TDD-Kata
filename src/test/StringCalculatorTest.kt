@@ -68,4 +68,10 @@ class StringCalculatorTest {
         Assert.assertEquals(tddContainer.add("//[***]\n1***2***3"), 6)
         Assert.assertEquals(tddContainer.add("//[xab]\n1xab2xab3"), 6)
     }
+
+    @Test
+    fun test_add_inputMultipleDelimiters_expectedSum() {
+        Assert.assertEquals(tddContainer.add("//[***][xab]\n1***2xab3"), 6)
+        Assert.assertEquals(tddContainer.add("//[xab][pqr]\n1xab2pqr3"), 6)
+    }
 }
