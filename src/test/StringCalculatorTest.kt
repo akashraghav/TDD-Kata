@@ -42,4 +42,9 @@ class StringCalculatorTest {
     fun test_add_invalidInputPattern_throwException() {
         tddContainer.add("1/a/s,2,v,a")
     }
+
+    @Test
+    fun test_add_nextLineAsDelimiter_expectedOuptut() {
+        Assert.assertEquals(tddContainer.add("1\n2,3"), 6)
+    }
 }
